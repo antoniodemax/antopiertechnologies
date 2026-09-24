@@ -73,6 +73,13 @@ export const founder: Founder = {
       source: PORTFOLIO_CONTACT,
       status: "final",
     },
+    {
+      network: "instagram",
+      label: "Instagram",
+      url: "https://www.instagram.com/antony.peter/",
+      source: `${PORTFOLIO_CONTACT}: handle @antony.peter. URL derived from the handle; confirm it opens the right profile.`,
+      status: "final",
+    },
   ],
   status: "draft",
 };

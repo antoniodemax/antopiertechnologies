@@ -114,7 +114,7 @@ export interface Pillar {
 }
 
 export interface SocialLink extends Tracked {
-  network: "linkedin" | "github" | "whatsapp";
+  network: "linkedin" | "github" | "instagram" | "whatsapp";
   label: string;
   url: string;
   source: string;

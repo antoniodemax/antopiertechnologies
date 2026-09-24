@@ -24,5 +24,21 @@ export function SocialIcon({
       </svg>
     );
   }
+  if (network === "instagram") {
+    return (
+      <svg
+        viewBox="0 0 16 16"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        aria-hidden
+        className={className}
+      >
+        <rect x="1.5" y="1.5" width="13" height="13" rx="3.6" />
+        <circle cx="8" cy="8" r="3" />
+        <circle cx="11.9" cy="4.1" r="0.7" fill="currentColor" stroke="none" />
+      </svg>
+    );
+  }
   return null;
 }

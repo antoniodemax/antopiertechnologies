@@ -22,14 +22,15 @@ Brand values sampled from the supplied logo file (`ANTOPIER TECHNOLOGIES logo.pn
 The logo blue passes for text and for white text on buttons, so no darker substitute colour was needed (PRD flag F6 resolved).
 axe-core (WCAG 2.2 AA tags) reported 0 violations on all 9 routes at 1440px and 390px on 2026-09-24.
 
-## Hero photograph overlay (added 2026-09-24)
+## Hero photograph overlay (updated 2026-09-24)
 
-The Home hero places white copy over a photograph behind a navy gradient. On the copy side the overlay is `#0E264A` at 88–97% opacity, so the effective ground is at least as dark as `#0E264A`:
+The Home hero renders the photograph as a brand-blue duotone (`mix-blend-mode: luminosity` over a `#15396F` to `#2F7CC4` gradient) with a navy wash under the copy. The effective ground behind the text is no lighter than `#1E62A3`, and on the copy side it is close to `#15396F`:
 
 | Foreground | Ground | Ratio |
 |---|---|---|
-| `#FFFFFF` headline | `#0E264A` | 15.06 |
-| `#C9D6E6` on-deep intro | `#0E264A` | 10.21 |
-| `#9FB3CC` on-deep-muted eyebrow | `#0E264A` | 7.02 |
+| `#FFFFFF` headline | `#15396F` / `#1E62A3` | 11.37 / 6.30 |
+| `#C9D6E6` on-deep intro | `#15396F` | 7.71 |
+| `#9FB3CC` on-deep-muted eyebrow | `#15396F` | 5.30 |
 
+The header stays white on every page so the logo keeps its own blue.
 Photo: UK Black Tech on Unsplash (`LRn6do1x6tI`), Unsplash License. Decorative (`alt=""`); the headline carries the message.

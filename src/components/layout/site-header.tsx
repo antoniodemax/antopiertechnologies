@@ -11,25 +11,20 @@ import { Logo } from "./logo";
 export function SiteHeader() {
   const { pathname } = useLocation();
   const scrolled = useScrolled();
-  const solid = scrolled || pathname !== "/";
-  const overPhoto = !solid;
+  const raised = scrolled || pathname !== "/";
 
   return (
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-40 h-header transition-[background-color,box-shadow,border-color] duration-300 motion-reduce:transition-none",
-        solid
-          ? "border-b border-border/80 bg-white/90 shadow-nav backdrop-blur-md after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-[linear-gradient(90deg,transparent,rgb(30_98_163/0.35),transparent)] supports-[backdrop-filter]:bg-white/80"
-          : "border-b border-white/10 bg-[linear-gradient(180deg,rgb(14_38_74/0.55),transparent)]",
+        "border-b bg-white/90 backdrop-blur-md supports-[backdrop-filter]:bg-white/85",
+        raised
+          ? "border-border/80 shadow-nav after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-[linear-gradient(90deg,transparent,rgb(30_98_163/0.35),transparent)]"
+          : "border-white/60",
       )}
     >
       <div className="container-page flex h-full items-center justify-between gap-6">
-        <Logo
-          className={cn(
-            "h-10 transition-[filter] duration-300 sm:h-12",
-            overPhoto && "brightness-0 invert",
-          )}
-        />
+        <Logo className="h-10 sm:h-12" />
 
         <nav aria-label="Main" className="hidden lg:block">
           <ul className="flex items-center gap-1">
@@ -42,19 +37,10 @@ export function SiteHeader() {
                     cn(
                       "relative inline-flex h-10 items-center rounded-control px-3.5 text-small font-medium transition-colors",
                       "after:absolute after:inset-x-3.5 after:bottom-1 after:h-0.5 after:origin-left after:scale-x-0 after:rounded-full after:transition-transform after:duration-300 motion-reduce:after:transition-none",
-                      overPhoto
-                        ? cn(
-                            "after:bg-white",
-                            isActive
-                              ? "text-white after:scale-x-100"
-                              : "text-white/75 hover:text-white hover:after:scale-x-50",
-                          )
-                        : cn(
-                            "after:bg-brand",
-                            isActive
-                              ? "text-ink after:scale-x-100"
-                              : "text-ink-muted hover:text-ink hover:after:scale-x-50",
-                          ),
+                      "after:bg-brand",
+                      isActive
+                        ? "text-ink after:scale-x-100"
+                        : "text-ink-muted hover:text-ink hover:after:scale-x-50",
                     )
                   }
                 >
@@ -66,30 +52,20 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <CtaLink
-            cta={ctas.consultation}
-            size="sm"
-            variant={overPhoto ? "inverse" : "primary"}
-            className="hidden sm:inline-flex"
-          />
-          <MobileNav light={overPhoto} />
+          <CtaLink cta={ctas.consultation} size="sm" className="hidden sm:inline-flex" />
+          <MobileNav />
         </div>
       </div>
     </header>
   );
 }
 
-function MobileNav({ light }: { light: boolean }) {
+function MobileNav() {
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger
-        className={cn(
-          "grid size-11 place-items-center rounded-control transition-colors lg:hidden",
-          light ? "text-white hover:bg-white/10" : "text-ink hover:bg-surface-muted",
-        )}
-      >
+      <SheetTrigger className="grid size-11 place-items-center rounded-control text-ink transition-colors hover:bg-surface-muted lg:hidden">
         <Menu className="size-6" aria-hidden />
         <span className="sr-only">Open menu</span>
       </SheetTrigger>

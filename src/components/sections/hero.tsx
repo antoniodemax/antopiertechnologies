@@ -8,7 +8,7 @@ export function Hero() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative isolate min-h-[min(46rem,100svh)] overflow-hidden bg-brand-deep text-white"
+      className="relative isolate min-h-[min(46rem,100svh)] overflow-hidden bg-[linear-gradient(115deg,#15396f_0%,#1e62a3_55%,#2f7cc4_100%)] text-white"
     >
       {/* Photograph. Decorative: the headline carries the message. */}
       <picture aria-hidden className="absolute inset-0 -z-20">
@@ -26,7 +26,7 @@ export function Hero() {
           height={1333}
           fetchPriority="high"
           decoding="async"
-          className="hero-photo h-full w-full object-cover object-[68%_40%] sm:object-[62%_center]"
+          className="hero-photo h-full w-full object-cover object-[68%_40%] opacity-85 mix-blend-luminosity sm:object-[62%_center]"
           style={{ backgroundImage: `url(${image.lqip})`, backgroundSize: "cover" }}
         />
       </picture>
@@ -34,7 +34,7 @@ export function Hero() {
       {/* Navy wash: opaque behind the copy, opening up over the people, fading into the page below. */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,rgb(14_38_74/0.96)_0%,rgb(14_38_74/0.88)_34%,rgb(21_57_111/0.55)_58%,rgb(21_57_111/0.25)_100%)] sm:bg-[linear-gradient(100deg,rgb(14_38_74/0.97)_0%,rgb(14_38_74/0.9)_30%,rgb(21_57_111/0.45)_55%,rgb(21_57_111/0.12)_100%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,rgb(21_57_111/0.92)_0%,rgb(21_57_111/0.82)_38%,rgb(30_98_163/0.35)_62%,rgb(30_98_163/0.05)_100%)] sm:bg-[linear-gradient(100deg,rgb(21_57_111/0.94)_0%,rgb(21_57_111/0.84)_32%,rgb(30_98_163/0.3)_58%,rgb(30_98_163/0)_100%)]"
       />
       <div
         aria-hidden
@@ -42,7 +42,7 @@ export function Hero() {
       />
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-grid-deep [mask-image:linear-gradient(90deg,black_20%,transparent_70%)] opacity-60"
+        className="absolute inset-0 -z-10 bg-grid-deep [mask-image:linear-gradient(90deg,black_20%,transparent_70%)] opacity-50"
       />
 
       <div className="relative container-page flex min-h-[min(46rem,100svh)] flex-col justify-center pt-[calc(var(--spacing-header)+2.5rem)] pb-28 sm:pb-32 lg:pb-36">

@@ -14,7 +14,7 @@ export function PageHero({
   return (
     <section
       aria-labelledby="page-heading"
-      className="relative overflow-hidden border-b border-border pt-header"
+      className="relative overflow-hidden border-b border-border pt-header bg-wash"
     >
       <div
         aria-hidden
@@ -25,10 +25,7 @@ export function PageHero({
         className="pointer-events-none absolute -top-48 left-1/2 h-[28rem] w-[48rem] -translate-x-1/2 rounded-full bg-brand-tint/50 blur-3xl"
       />
       <div className="relative container-page pt-16 pb-16 sm:pt-20 lg:pt-24 lg:pb-20">
-        <p className="hero-in flex items-center gap-2 eyebrow text-brand">
-          <span aria-hidden className="size-1.5 rounded-[1px] bg-brand" />
-          {eyebrow}
-        </p>
+        <p className="hero-in eyebrow-rule eyebrow text-brand">{eyebrow}</p>
         <h1
           id="page-heading"
           className="hero-in mt-5 max-w-4xl text-h1 font-semibold text-balance [animation-delay:60ms]"

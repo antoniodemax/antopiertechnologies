@@ -10,7 +10,7 @@ function Monogram() {
   return (
     <div
       aria-hidden
-      className="relative grid aspect-square w-full max-w-[15rem] place-items-center overflow-hidden rounded-media bg-brand-deep"
+      className="relative grid aspect-square w-full max-w-[15rem] place-items-center overflow-hidden rounded-media shadow-media bg-deep"
     >
       <div className="absolute inset-0 bg-grid-deep" />
       <span className="relative text-[4.5rem] font-semibold tracking-tight text-white">AP</span>
@@ -65,10 +65,7 @@ export function FounderIntro({ variant = "short" }: { variant?: "short" | "full"
           </h3>
           <ul className="mt-4 grid gap-3 sm:grid-cols-2">
             {founder.buildRecord.map((item) => (
-              <li
-                key={item.project}
-                className="rounded-card border border-border bg-surface p-5 shadow-card"
-              >
+              <li key={item.project} className="surface-card rounded-card p-5">
                 <p className="text-small font-semibold text-brand-deep">{item.result}</p>
                 <p className="mt-2 font-semibold text-ink">{item.project}</p>
                 {full ? <p className="mt-2 text-small text-ink-muted">{item.text}</p> : null}
@@ -82,7 +79,7 @@ export function FounderIntro({ variant = "short" }: { variant?: "short" | "full"
                 <GraduationCap aria-hidden className="size-4 text-brand" />
                 Education and training
               </h3>
-              <ul className="mt-4 divide-y divide-border rounded-card border border-border bg-surface">
+              <ul className="surface-card mt-4 divide-y divide-border rounded-card">
                 {founder.education.map((e) => (
                   <li
                     key={e.text}

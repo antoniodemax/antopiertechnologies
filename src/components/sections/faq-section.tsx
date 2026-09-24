@@ -22,10 +22,7 @@ export function FaqSection({
     <Section tone={tone} aria-labelledby="faq-heading">
       <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
         <Reveal className="lg:col-span-4">
-          <p className="mb-4 flex items-center gap-2 eyebrow text-brand">
-            <span aria-hidden className="size-1.5 rounded-[1px] bg-brand" />
-            {sectionCopy.faq.eyebrow}
-          </p>
+          <p className="mb-4 eyebrow-rule eyebrow text-brand">{sectionCopy.faq.eyebrow}</p>
           <h2 id="faq-heading" className="text-h2 font-semibold text-balance">
             {sectionCopy.faq.heading}
           </h2>

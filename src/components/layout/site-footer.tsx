@@ -6,7 +6,7 @@ import { Logo } from "./logo";
 export function SiteFooter() {
   const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-border bg-surface-muted">
+    <footer className="relative bg-surface-muted before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-[linear-gradient(90deg,transparent,rgb(30_98_163/0.45),transparent)]">
       <div className="container-page grid gap-12 py-16 lg:grid-cols-12 lg:gap-8 lg:py-20">
         <div className="lg:col-span-4">
           <Logo withTagline className="h-20 sm:h-24" />

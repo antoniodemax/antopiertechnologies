@@ -147,7 +147,7 @@ export function ConsultationForm() {
     <form
       noValidate
       onSubmit={handleSubmit(onValid, onInvalid)}
-      className="rounded-media border border-border bg-surface p-6 shadow-raise sm:p-10"
+      className="rounded-media border border-border bg-[linear-gradient(180deg,#ffffff,#fbfcfe)] p-6 shadow-raise sm:p-10"
       aria-describedby="form-intro"
     >
       <h2 className="text-h3 font-semibold">Request a consultation</h2>

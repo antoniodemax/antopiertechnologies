@@ -14,10 +14,12 @@
   --color-brand-deep: #15396f;
   --color-brand-subtle: #edf3fa;
   --color-brand-tint: #dce8f5;
+  --color-brand-glow: #a9c4e4;
 
   --color-surface: #ffffff;
-  --color-surface-muted: #f6f8fb;
-  --color-border: #e4e9f0;
+  --color-surface-muted: #f4f7fb;
+  --color-surface-sunken: #eef2f8;
+  --color-border: #e3e8ef;
   --color-border-strong: #8391a4;
 
   --color-ink: #0c1a2b;
@@ -38,10 +40,10 @@
   --text-h1--letter-spacing: -0.03em;
   --text-h2: clamp(1.875rem, 1.45rem + 1.6vw, 2.75rem);
   --text-h2--line-height: 1.12;
-  --text-h2--letter-spacing: -0.025em;
-  --text-h3: 1.25rem;
-  --text-h3--line-height: 1.35;
-  --text-h3--letter-spacing: -0.01em;
+  --text-h2--letter-spacing: -0.03em;
+  --text-h3: 1.3125rem;
+  --text-h3--line-height: 1.3;
+  --text-h3--letter-spacing: -0.015em;
   --text-lead: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
   --text-lead--line-height: 1.6;
   --text-body: 1rem;
@@ -56,10 +58,17 @@
   --radius-card: 1rem;
   --radius-media: 1.25rem;
 
-  --shadow-card: 0 1px 2px rgb(12 26 43 / 0.04), 0 1px 1px rgb(12 26 43 / 0.02);
-  --shadow-raise: 0 1px 2px rgb(12 26 43 / 0.04), 0 16px 32px -16px rgb(21 57 111 / 0.2);
-  --shadow-nav: 0 1px 0 rgb(12 26 43 / 0.06), 0 8px 24px -18px rgb(12 26 43 / 0.25);
-  --shadow-media: 0 1px 2px rgb(12 26 43 / 0.06), 0 24px 60px -24px rgb(21 57 111 / 0.28);
+  --shadow-card:
+    0 0 0 1px rgb(12 26 43 / 0.03), 0 1px 2px rgb(12 26 43 / 0.04),
+    0 2px 8px -2px rgb(21 57 111 / 0.04);
+  --shadow-raise:
+    0 0 0 1px rgb(30 98 163 / 0.08), 0 2px 4px rgb(12 26 43 / 0.03),
+    0 20px 40px -18px rgb(21 57 111 / 0.22);
+  --shadow-nav: 0 1px 0 rgb(12 26 43 / 0.05), 0 10px 30px -20px rgb(21 57 111 / 0.3);
+  --shadow-media:
+    0 0 0 1px rgb(12 26 43 / 0.04), 0 2px 6px rgb(12 26 43 / 0.05),
+    0 30px 70px -30px rgb(21 57 111 / 0.35);
+  --shadow-glow: 0 0 0 4px rgb(30 98 163 / 0.14);
 
   --spacing-section-sm: 4.5rem;
   --spacing-section: 6rem;
@@ -87,6 +96,17 @@
 
   body {
     @apply bg-surface font-sans text-body text-ink antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    font-feature-settings: "ss03";
+  }
+
+  p {
+    text-wrap: pretty;
   }
 
   ::selection {
@@ -130,6 +150,84 @@
   letter-spacing: var(--text-eyebrow--letter-spacing);
   text-transform: uppercase;
   font-weight: 600;
+}
+
+/* Editorial eyebrow: a short brand rule before the label. */
+@utility eyebrow-rule {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  &::before {
+    content: "";
+    width: 1.5rem;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.7;
+  }
+}
+
+/* Card surface: white with a soft vertical wash and a 1px top highlight. */
+@utility surface-card {
+  position: relative;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfcfe 100%);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  transition:
+    transform 0.35s var(--ease-out-soft),
+    box-shadow 0.35s var(--ease-out-soft),
+    border-color 0.35s var(--ease-out-soft);
+}
+
+@utility surface-card-hover {
+  &:hover {
+    border-color: rgb(30 98 163 / 0.28);
+    box-shadow: var(--shadow-raise);
+    transform: translateY(-3px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+/* Icon tile: tinted square with an inner highlight. */
+@utility icon-tile {
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-control);
+  background: linear-gradient(160deg, #ffffff 0%, var(--color-brand-subtle) 100%);
+  border: 1px solid rgb(30 98 163 / 0.14);
+  box-shadow:
+    inset 0 1px 0 #ffffff,
+    0 1px 2px rgb(21 57 111 / 0.06);
+  color: var(--color-brand);
+}
+
+/* Section washes. */
+@utility bg-wash {
+  background:
+    radial-gradient(60rem 30rem at 85% -10%, rgb(220 232 245 / 0.75), transparent 60%),
+    radial-gradient(40rem 24rem at 0% 110%, rgb(237 243 250 / 0.9), transparent 60%), #ffffff;
+}
+
+@utility bg-deep {
+  background:
+    radial-gradient(50rem 28rem at 100% 0%, rgb(30 98 163 / 0.55), transparent 60%),
+    radial-gradient(40rem 22rem at 0% 100%, rgb(30 98 163 / 0.25), transparent 55%),
+    linear-gradient(180deg, #15396f 0%, #12305f 100%);
+}
+
+/* Hairline dividers that fade at both ends. */
+@utility divider-fade {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-border) 12%,
+    var(--color-border) 88%,
+    transparent
+  );
 }
 
 /* Faint engineering grid used behind the hero and dark sections. */

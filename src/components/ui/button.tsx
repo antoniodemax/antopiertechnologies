@@ -9,9 +9,9 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          "bg-brand text-white shadow-[inset_0_1px_0_rgb(255_255_255/0.14),0_1px_2px_rgb(21_57_111/0.3)] hover:bg-brand-deep active:translate-y-px",
+          "bg-[linear-gradient(180deg,#2470b8_0%,#1e62a3_60%,#1a5892_100%)] text-white shadow-[inset_0_1px_0_rgb(255_255_255/0.18),0_1px_2px_rgb(21_57_111/0.35),0_6px_16px_-8px_rgb(30_98_163/0.6)] hover:bg-[linear-gradient(180deg,#1e62a3_0%,#1a5892_60%,#15396f_100%)] hover:shadow-[inset_0_1px_0_rgb(255_255_255/0.14),0_1px_2px_rgb(21_57_111/0.35),0_10px_22px_-8px_rgb(30_98_163/0.55)] active:translate-y-px",
         secondary:
-          "border border-border bg-surface text-ink shadow-card hover:border-brand/40 hover:text-brand active:translate-y-px",
+          "border border-border bg-[linear-gradient(180deg,#ffffff,#f7f9fc)] text-ink shadow-[0_1px_2px_rgb(12_26_43/0.05),inset_0_1px_0_#fff] hover:border-brand/40 hover:text-brand hover:shadow-raise active:translate-y-px",
         ghost: "text-ink-muted hover:bg-surface-muted hover:text-ink",
         inverse:
           "bg-white text-brand-deep shadow-[0_1px_2px_rgb(0_0_0/0.2)] hover:bg-brand-subtle active:translate-y-px",

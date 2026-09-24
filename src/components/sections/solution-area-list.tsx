@@ -38,7 +38,7 @@ export function SolutionAreaList() {
                     className={cn("lg:col-span-7", index % 2 === 1 && "lg:order-2 lg:col-start-6")}
                   >
                     <div className="flex items-center gap-3">
-                      <span className="grid size-10 place-items-center rounded-control bg-brand-subtle text-brand">
+                      <span className="icon-tile size-11">
                         <Icon aria-hidden className="size-5" />
                       </span>
                       <span className="eyebrow text-ink-subtle">
@@ -82,7 +82,7 @@ export function SolutionAreaList() {
                       </div>
                     </div>
 
-                    <div className="mt-10 rounded-card border border-brand/15 bg-brand-subtle/60 p-6">
+                    <div className="mt-10 rounded-card border border-brand/15 bg-[linear-gradient(90deg,#edf3fa,#ffffff_70%)] p-6">
                       <h3 className="eyebrow text-brand-deep">The value</h3>
                       <p className="mt-2 font-medium text-ink">{area.value}</p>
                     </div>
@@ -99,7 +99,7 @@ export function SolutionAreaList() {
                     delay={100}
                     className={cn("lg:col-span-5", index % 2 === 1 && "lg:order-1 lg:col-start-1")}
                   >
-                    <div className="rounded-media bg-surface-muted p-5 sm:p-8 lg:sticky lg:top-28">
+                    <div className="rounded-media border border-border bg-[linear-gradient(180deg,#f4f7fb,#eef2f8)] p-5 sm:p-8 lg:sticky lg:top-28">
                       <SolutionMockup kind={area.mockup} />
                       <p className="mt-4 text-[0.75rem] text-ink-subtle">
                         Illustrative interface with sample data

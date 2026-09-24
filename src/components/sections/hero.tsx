@@ -5,22 +5,20 @@ import { HeroComposition } from "@/components/mockups/hero-composition";
 
 export function Hero() {
   return (
-    <section aria-labelledby="hero-heading" className="relative overflow-hidden pt-header">
+    <section aria-labelledby="hero-heading" className="relative overflow-hidden pt-header bg-wash">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_70%_60%_at_60%_20%,black,transparent_75%)]"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 right-[-10%] h-[36rem] w-[36rem] rounded-full bg-brand-tint/60 blur-3xl"
+        className="pointer-events-none absolute -top-40 right-[-10%] h-[36rem] w-[36rem] rounded-full bg-[radial-gradient(closest-side,rgb(169_196_228/0.55),transparent)]"
       />
       <div className="relative container-page grid items-center gap-16 pt-12 pb-20 sm:pt-16 lg:grid-cols-12 lg:gap-10 lg:pt-20 lg:pb-28">
         <div className="lg:col-span-6">
-          <p className="hero-in inline-flex items-center gap-2 rounded-full border border-border bg-surface/80 py-1.5 pr-3.5 pl-2 text-small font-medium text-ink-muted shadow-card backdrop-blur">
-            <span
-              aria-hidden
-              className="grid size-5 place-items-center rounded-full bg-brand-subtle"
-            >
+          <p className="hero-in inline-flex items-center gap-2 rounded-full border border-brand/15 bg-[linear-gradient(90deg,#edf3fa,#ffffff)] py-1.5 pr-3.5 pl-2 text-small font-medium text-brand-deep shadow-[0_1px_2px_rgb(21_57_111/0.06),inset_0_1px_0_#fff]">
+            <span aria-hidden className="relative grid size-5 place-items-center">
+              <span className="absolute size-3 animate-ping rounded-full bg-brand/30 motion-reduce:hidden" />
               <span className="size-1.5 rounded-full bg-brand" />
             </span>
             {hero.eyebrow}
@@ -58,7 +56,13 @@ export function Hero() {
             with a human review step, showing the kind of software Antopier builds. The data shown
             is sample data.
           </p>
-          <HeroComposition className="lg:ml-6" />
+          <div className="relative">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-x-8 top-10 -bottom-6 rounded-[3rem] bg-[radial-gradient(closest-side,rgb(30_98_163/0.16),transparent)] blur-2xl"
+            />
+            <HeroComposition className="lg:ml-6" />
+          </div>
           <p className="mt-14 text-center text-[0.75rem] text-ink-subtle md:mt-16 lg:text-right">
             {hero.mockupNote}
           </p>

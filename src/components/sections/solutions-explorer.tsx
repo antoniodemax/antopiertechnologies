@@ -54,7 +54,7 @@ export function SolutionsExplorer() {
               key={area.slug}
               value={area.slug}
               forceMount
-              className="rounded-media border border-border bg-surface-muted/60 p-6 data-[state=inactive]:hidden sm:p-8 lg:col-span-8 lg:p-10"
+              className="rounded-media border border-border bg-[linear-gradient(180deg,#ffffff,#f4f7fb)] p-6 shadow-card data-[state=inactive]:hidden sm:p-8 lg:col-span-8 lg:p-10"
             >
               <div className="grid gap-6 sm:grid-cols-[1fr_15rem] sm:items-start lg:gap-8 xl:grid-cols-[1fr_17rem]">
                 <p className="text-lead font-medium text-balance text-ink">{area.summary}</p>
@@ -91,7 +91,7 @@ export function SolutionsExplorer() {
                   </dd>
                 </div>
               </dl>
-              <div className="mt-8 flex flex-col gap-5 rounded-card border border-brand/15 bg-surface p-5 sm:flex-row sm:items-center sm:justify-between">
+              <div className="mt-8 flex flex-col gap-5 rounded-card border border-brand/15 bg-[linear-gradient(90deg,#edf3fa,#ffffff_60%)] p-5 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <p className="eyebrow text-brand-deep">The value</p>
                   <p className="mt-1.5 text-ink">{area.value}</p>

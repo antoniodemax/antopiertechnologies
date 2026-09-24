@@ -18,7 +18,7 @@ export function SiteHeader() {
       className={cn(
         "fixed inset-x-0 top-0 z-40 h-header transition-[background-color,box-shadow,border-color] duration-300 motion-reduce:transition-none",
         solid
-          ? "border-b border-border/80 bg-white/90 shadow-nav backdrop-blur-md supports-[backdrop-filter]:bg-white/80"
+          ? "border-b border-border/80 bg-white/90 shadow-nav backdrop-blur-md after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-[linear-gradient(90deg,transparent,rgb(30_98_163/0.35),transparent)] supports-[backdrop-filter]:bg-white/80"
           : "border-b border-transparent bg-transparent",
       )}
     >

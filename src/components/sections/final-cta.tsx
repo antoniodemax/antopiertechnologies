@@ -7,7 +7,7 @@ export function FinalCta() {
   return (
     <section aria-labelledby="final-cta-heading" className="section-y">
       <div className="container-page">
-        <Reveal className="relative overflow-hidden rounded-[1.75rem] bg-brand-deep px-6 py-16 text-center sm:px-12 lg:py-24">
+        <Reveal className="relative overflow-hidden rounded-[1.75rem] px-6 py-16 text-center shadow-media bg-deep sm:px-12 lg:py-24">
           <div
             aria-hidden
             className="pointer-events-none absolute inset-0 bg-grid-deep [mask-image:radial-gradient(ellipse_70%_80%_at_50%_0%,black,transparent_75%)]"

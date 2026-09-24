@@ -61,7 +61,7 @@ export default function Contact() {
               </ol>
             </Reveal>
 
-            <Reveal delay={80} className="rounded-card border border-border bg-surface p-6">
+            <Reveal delay={80} className="surface-card rounded-card p-6">
               <h2 className="font-semibold text-ink">Contact details</h2>
               <ul className="mt-5 space-y-4">
                 {contactDetails
@@ -70,7 +70,7 @@ export default function Contact() {
                     const Icon = icons[d.kind];
                     return (
                       <li key={d.kind} className="flex gap-3">
-                        <span className="grid size-9 shrink-0 place-items-center rounded-control bg-brand-subtle text-brand">
+                        <span className="icon-tile size-9 shrink-0">
                           <Icon aria-hidden className="size-4" />
                         </span>
                         <span className="text-small">
@@ -96,7 +96,7 @@ export default function Contact() {
             </Reveal>
 
             {discovery.external ? (
-              <Reveal delay={120} className="rounded-card bg-brand-deep p-6 text-white">
+              <Reveal delay={120} className="rounded-card p-6 text-white shadow-media bg-deep">
                 <h2 className="font-semibold">Prefer to talk first?</h2>
                 <p className="mt-2 text-small text-on-deep">
                   Book a short discovery call to introduce your organization and ask questions

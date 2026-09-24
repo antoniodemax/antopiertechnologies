@@ -37,7 +37,7 @@ export function ServiceDetailList() {
               >
                 <Reveal className="lg:col-span-5">
                   <div className="flex items-center gap-4">
-                    <span className="grid size-12 place-items-center rounded-control bg-brand text-white shadow-[0_8px_20px_-8px_rgb(30_98_163/0.6)]">
+                    <span className="grid size-12 place-items-center rounded-control bg-[linear-gradient(160deg,#2470b8,#15396f)] text-white shadow-[inset_0_1px_0_rgb(255_255_255/0.2),0_10px_24px_-10px_rgb(30_98_163/0.7)]">
                       <Icon aria-hidden className="size-5.5" />
                     </span>
                     <span className="eyebrow text-ink-subtle tabular-nums">
@@ -59,7 +59,7 @@ export function ServiceDetailList() {
                     {service.deliverables.map((d) => (
                       <li
                         key={d}
-                        className="flex gap-3 rounded-control border border-border bg-surface p-4 text-small font-medium text-ink"
+                        className="surface-card flex gap-3 rounded-control p-4 text-small font-medium text-ink"
                       >
                         <Check aria-hidden className="mt-0.5 size-4 shrink-0 text-brand" />
                         {d}

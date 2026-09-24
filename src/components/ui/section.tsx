@@ -56,16 +56,7 @@ export function SectionHeader({
       )}
     >
       <div className={cn("max-w-3xl", align === "center" && "flex flex-col items-center")}>
-        <p
-          className={cn(
-            "mb-4 flex items-center gap-2 eyebrow",
-            deep ? "text-on-deep-muted" : "text-brand",
-          )}
-        >
-          <span
-            aria-hidden
-            className={cn("size-1.5 rounded-[1px]", deep ? "bg-on-deep-muted" : "bg-brand")}
-          />
+        <p className={cn("mb-4 eyebrow-rule eyebrow", deep ? "text-on-deep-muted" : "text-brand")}>
           {eyebrow}
         </p>
         <h2

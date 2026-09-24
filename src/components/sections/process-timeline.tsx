@@ -10,7 +10,7 @@ export function ProcessTimeline({ tone = "default" }: { tone?: "default" | "mute
       <ol className="relative grid gap-0 lg:grid-cols-7 lg:gap-4">
         <span
           aria-hidden
-          className="absolute top-5 right-[7%] left-[7%] hidden h-px bg-border lg:block"
+          className="absolute top-5 right-[7%] left-[7%] hidden h-px bg-[linear-gradient(90deg,transparent,rgb(30_98_163/0.35)_10%,rgb(30_98_163/0.35)_90%,transparent)] lg:block"
         />
         {processSteps.map((step, i) => (
           <li
@@ -20,11 +20,11 @@ export function ProcessTimeline({ tone = "default" }: { tone?: "default" | "mute
             {i < processSteps.length - 1 ? (
               <span
                 aria-hidden
-                className="absolute top-11 bottom-0 left-5 w-px bg-border lg:hidden"
+                className="absolute top-11 bottom-0 left-5 w-px bg-[linear-gradient(180deg,rgb(30_98_163/0.35),rgb(30_98_163/0.1))] lg:hidden"
               />
             ) : null}
             <Reveal delay={i * 60} className="contents lg:block">
-              <span className="relative z-10 grid size-10 shrink-0 place-items-center rounded-full border border-brand/25 bg-surface text-small font-semibold text-brand tabular-nums shadow-card lg:mx-auto">
+              <span className="relative z-10 grid size-10 shrink-0 place-items-center rounded-full border border-brand/30 bg-[linear-gradient(180deg,#ffffff,#edf3fa)] text-small font-semibold text-brand tabular-nums shadow-[0_1px_2px_rgb(21_57_111/0.1),inset_0_1px_0_#fff] lg:mx-auto">
                 {String(step.order).padStart(2, "0")}
               </span>
               <div className="pt-1.5 lg:mt-6 lg:pt-0 lg:text-center">

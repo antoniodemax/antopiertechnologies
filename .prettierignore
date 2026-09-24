@@ -1,5 +1,5 @@
-build
-.react-router
-node_modules
+**/build
+**/.react-router
+**/node_modules
 package-lock.json
-public
+frontend/public

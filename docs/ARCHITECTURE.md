@@ -66,46 +66,46 @@ Versions were read from the npm registry on 2026-09-24. Setup methods were check
 
 ## 2. Folder structure
 
-Shown for the recommended setup (§7, option B). React Router's framework mode expects route files in an `app/` folder by default. Its `appDirectory` setting points it at `src/` instead, which keeps the conventional layout. **Unverified:** confirm `appDirectory` still exists in v8 during Phase 0.
+The repository is an npm workspace with three packages. Updated 2026-09-24 after the split into frontend and backend.
 
 ```
 .
-├── api/
-│   └── consultation.ts        # Vercel Function: validates and emails form submissions. The only server code.
-├── docs/                      # PRD, architecture, design brief, content-editing guide.
-├── public/
-│   ├── brand/                 # Logo files as supplied (SVG first). Never redrawn.
-│   ├── og/                    # Open Graph images, one per page, 1200×630.
-│   ├── robots.txt
-│   └── favicon.svg            # Made from the logo once it arrives.
-├── scripts/
-│   └── generate-sitemap.ts    # Builds sitemap.xml from the route list at build time.
-├── src/
-│   ├── root.tsx               # HTML shell, <head>, global layout, error boundary.
-│   ├── routes.ts              # The route table. One line per page.
-│   ├── routes/                # One file per page (the brief's "pages"). Each composes sections and sets its meta.
-│   ├── components/
-│   │   ├── ui/                # shadcn/ui primitives and our own base parts (Button, Card, Badge, Input). No business copy.
-│   │   ├── layout/            # SiteHeader, MobileNav, SiteFooter, Container, Section.
-│   │   ├── sections/          # Page sections (Hero, ServicesGrid, ProcessTimeline, FinalCta). Each takes content as props.
-│   │   └── mockups/           # Hero and solution-card interface mockups, built in HTML/SVG.
-│   ├── content/               # All copy and repeatable content as typed data. See §4.
-│   ├── lib/                   # cn(), seo helpers, the placeholder guard, analytics wrapper, form schema.
-│   ├── hooks/                 # useScrolled, useInView, useReducedMotion.
-│   └── styles/
-│       └── app.css            # Tailwind import, @theme tokens, base layer.
-├── tests/
-│   ├── unit/                  # Vitest: content honesty, schema, helpers.
-│   └── e2e/                   # Playwright: navigation, form, accordion, axe on every route.
-├── components.json            # shadcn/ui config.
-├── react-router.config.ts     # ssr: false, prerender list, appDirectory: "src".
-└── vercel.json                # Security headers and redirects.
+├── frontend/                  # The website: React Router 8 framework mode, ssr: false, prerender: true.
+│   ├── public/
+│   │   └── brand/             # Logo files cropped from the supplied PNG. Never redrawn.
+│   ├── src/
+│   │   ├── root.tsx           # HTML shell, <head>, global layout, error boundary.
+│   │   ├── routes.ts          # The route table. One line per page.
+│   │   ├── routes/            # One file per page. Each composes sections and sets its meta.
+│   │   ├── components/
+│   │   │   ├── ui/            # Primitives (Button, Accordion, Sheet, Section). No business copy.
+│   │   │   ├── layout/        # SiteHeader, MobileNav, SiteFooter, Logo, SkipLink.
+│   │   │   ├── sections/      # Page sections. Each takes content as props.
+│   │   │   └── mockups/       # Hero and solution-card interface mockups, built in HTML.
+│   │   ├── content/           # All copy and repeatable content as typed data. See §4.
+│   │   ├── lib/               # cn(), env, seo helper, booking links.
+│   │   ├── hooks/
+│   │   └── styles/app.css     # Tailwind import, @theme tokens, base layer.
+│   ├── tests/unit/            # Vitest: content honesty, meta limits.
+│   ├── react-router.config.ts # appDirectory: "src", ssr: false, prerender: true.
+│   ├── vite.config.ts         # Proxies /api to the backend in development.
+│   └── vercel.json            # Security headers and asset caching.
+├── backend/                   # The API: a Hono app that runs on Node locally and on Vercel.
+│   ├── src/
+│   │   ├── index.ts           # Routes: GET /api/health, POST /api/consultation. Default export.
+│   │   ├── consultation.ts    # Validation, honeypot, Turnstile, rate limit, Resend delivery.
+│   │   └── server.ts          # Local Node server (npm run dev).
+│   └── tests/                 # Vitest against the Hono app in memory.
+├── shared/                    # Code both sides import: the consultation zod schema.
+├── docs/
+├── eslint.config.js           # One lint config for the whole repository.
+└── package.json               # Workspace root: dev, build, typecheck, lint, test.
 ```
 
 Rules:
-- A file in `components/` never contains copy a non-developer would want to edit. Copy lives in `content/`.
-- A section component takes its content through props. It does not import from `content/` directly. The route file does the wiring, which keeps sections reusable between Home and inner pages.
-- `components/ui/` files generated by shadcn/ui are edited freely, because we own them after generation.
+- A file in `frontend/src/components/` never contains copy a non-developer would want to edit. Copy lives in `content/`.
+- A section component takes its content through props. The route file does the wiring.
+- The form schema lives in `shared/` so the browser and the API validate identically. Change it in one place.
 
 ---
 
@@ -579,7 +579,7 @@ The final choice is yours. **DECISION NEEDED.**
 ### Consultation form endpoint (options C and D)
 
 ```
-Browser ──(zod validation)──▶ POST /api/consultation (Vercel Function)
+Browser ──(zod validation)──▶ POST /api/consultation (backend/, Hono)
                                 ├─ zod validation again (never trust the client)
                                 ├─ Turnstile token verified with Cloudflare
                                 ├─ honeypot field must be empty
@@ -587,7 +587,7 @@ Browser ──(zod validation)──▶ POST /api/consultation (Vercel Function)
                                 └─ Resend: notification to Antopier + confirmation to the visitor
 ```
 
-- One zod schema in `src/lib/consultation-schema.ts`, imported by both the form and the function.
+- One zod schema in `shared/src/consultation-schema.ts`, imported by both the form and the API.
 - Field-level rules are in the PRD (§4.2).
 - The function returns plain status codes (`200`, `400` with field errors, `429`, `500`). The form shows a specific message for each.
 - No database at launch. Submissions exist only as emails. If you want a record, a later phase can add a store.

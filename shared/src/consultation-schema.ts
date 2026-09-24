@@ -46,7 +46,8 @@ export const consultationSchema = z.object({
   sector: optionalText(60),
   timeline: z.enum(timelineValues).optional().or(z.literal("")),
   consent: z.literal(true, { error: "Please confirm you agree so we can reply to your request." }),
-  website: z.string().max(0).optional(),
+  // Honeypot. Humans never see it; anything in it is swallowed silently by the API.
+  website: z.string().optional(),
   turnstileToken: z.string().optional(),
 });
 

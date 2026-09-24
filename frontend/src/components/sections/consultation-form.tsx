@@ -15,7 +15,7 @@ import {
   timelineOptions,
   type ConsultationData,
   type ConsultationInput,
-} from "@/lib/consultation-schema";
+} from "@antopier/shared";
 
 type Status = { kind: "idle" } | { kind: "success" } | { kind: "error"; message: string };
 
@@ -29,6 +29,7 @@ const fieldLabels: Record<string, string> = {
 };
 
 const turnstileSiteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY as string | undefined;
+const apiBase = (import.meta.env.VITE_API_URL ?? "").replace(/\/$/, "");
 
 export function ConsultationForm() {
   const [params] = useSearchParams();
@@ -87,7 +88,7 @@ export function ConsultationForm() {
     setSummaryErrors([]);
     setStatus({ kind: "idle" });
     try {
-      const res = await fetch("/api/consultation", {
+      const res = await fetch(`${apiBase}/api/consultation`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...data, turnstileToken }),

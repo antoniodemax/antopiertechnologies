@@ -5,14 +5,15 @@ import tseslint from "typescript-eslint";
 import { defineConfig, globalIgnores } from "eslint/config";
 
 export default defineConfig([
-  globalIgnores(["build", ".react-router", "node_modules"]),
+  globalIgnores(["**/build", "**/.react-router", "**/node_modules", "**/.vercel"]),
   {
     files: ["**/*.{ts,tsx}"],
-    extends: [
-      js.configs.recommended,
-      tseslint.configs.recommended,
-      reactHooks.configs.flat.recommended,
-    ],
-    languageOptions: { globals: { ...globals.browser, ...globals.node } },
+    extends: [js.configs.recommended, tseslint.configs.recommended],
+    languageOptions: { globals: { ...globals.node } },
+  },
+  {
+    files: ["frontend/**/*.{ts,tsx}"],
+    extends: [reactHooks.configs.flat.recommended],
+    languageOptions: { globals: { ...globals.browser } },
   },
 ]);

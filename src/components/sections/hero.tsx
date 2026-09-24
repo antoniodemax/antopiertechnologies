@@ -1,89 +1,103 @@
 import { ctas } from "@/content/site";
 import { hero } from "@/content/home";
 import { CtaLink } from "@/components/ui/cta-link";
+import { HeroComposition } from "@/components/mockups/hero-composition";
 
-const { image } = hero;
+/** Splits the headline so the middle phrase can carry the brand blue without changing the copy. */
+function Headline({ text }: { text: string }) {
+  const match = text.match(/^(.*?)(Intelligent Software)(.*)$/);
+  if (!match) return <>{text}</>;
+  const [, before, accent, after] = match;
+  return (
+    <>
+      {before}
+      <span className="bg-[linear-gradient(92deg,#1e62a3,#2f7cc4)] bg-clip-text text-transparent">
+        {accent}
+      </span>
+      {after}
+    </>
+  );
+}
 
 export function Hero() {
   return (
-    <section
-      aria-labelledby="hero-heading"
-      className="relative isolate min-h-[min(46rem,100svh)] overflow-hidden bg-[linear-gradient(115deg,#15396f_0%,#1e62a3_55%,#2f7cc4_100%)] text-white"
-    >
-      {/* Photograph. Decorative: the headline carries the message. */}
-      <picture aria-hidden className="absolute inset-0 -z-20">
-        <source
-          type="image/webp"
-          srcSet={`${image.base}-800.webp 800w, ${image.base}-1200.webp 1200w, ${image.base}-2000.webp 2000w`}
-          sizes="100vw"
-        />
-        <img
-          src={`${image.base}-1200.jpg`}
-          srcSet={`${image.base}-800.jpg 800w, ${image.base}-1200.jpg 1200w, ${image.base}-2000.jpg 2000w`}
-          sizes="100vw"
-          alt=""
-          width={2000}
-          height={1333}
-          fetchPriority="high"
-          decoding="async"
-          className="hero-photo h-full w-full object-cover object-[68%_40%] opacity-85 mix-blend-luminosity sm:object-[62%_center]"
-          style={{ backgroundImage: `url(${image.lqip})`, backgroundSize: "cover" }}
-        />
-      </picture>
-
-      {/* Navy wash: opaque behind the copy, opening up over the people, fading into the page below. */}
+    <section aria-labelledby="hero-heading" className="relative isolate overflow-hidden pt-header">
+      {/* Ground: white with a blue wash rising behind the product, and a faint engineering grid. */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,rgb(21_57_111/0.92)_0%,rgb(21_57_111/0.82)_38%,rgb(30_98_163/0.35)_62%,rgb(30_98_163/0.05)_100%)] sm:bg-[linear-gradient(100deg,rgb(21_57_111/0.94)_0%,rgb(21_57_111/0.84)_32%,rgb(30_98_163/0.3)_58%,rgb(30_98_163/0)_100%)]"
+        className="absolute inset-0 -z-20 bg-[radial-gradient(70rem_36rem_at_88%_-6%,#dce8f5_0%,rgb(220_232_245/0.55)_35%,transparent_70%),radial-gradient(40rem_28rem_at_-10%_100%,rgb(237_243_250/0.9),transparent_60%),#ffffff]"
       />
       <div
         aria-hidden
-        className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-[linear-gradient(180deg,transparent,#ffffff)]"
+        className="absolute inset-0 -z-10 bg-grid [mask-image:radial-gradient(ellipse_75%_65%_at_60%_10%,black,transparent_78%)]"
+      />
+      {/* Diagonal brand band anchoring the composition. */}
+      <div
+        aria-hidden
+        className="absolute top-[calc(var(--spacing-header)+3rem)] right-[-14%] -z-10 hidden h-[120%] w-[46%] -rotate-6 rounded-[4rem] bg-[linear-gradient(160deg,#15396f_0%,#1e62a3_55%,#2f7cc4_100%)] [mask-image:linear-gradient(180deg,black_58%,transparent_92%)] opacity-[0.96] shadow-[0_40px_100px_-40px_rgb(21_57_111/0.6)] lg:block"
       />
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-grid-deep [mask-image:linear-gradient(90deg,black_20%,transparent_70%)] opacity-50"
+        className="absolute top-[calc(var(--spacing-header)+3rem)] right-[-14%] -z-10 hidden h-[120%] w-[46%] -rotate-6 rounded-[4rem] bg-grid-deep [mask-image:linear-gradient(180deg,black,transparent_70%)] opacity-70 lg:block"
       />
 
-      <div className="relative container-page flex min-h-[min(46rem,100svh)] flex-col justify-center pt-[calc(var(--spacing-header)+2.5rem)] pb-28 sm:pb-32 lg:pb-36">
-        <div className="max-w-2xl">
-          <p className="hero-in inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 py-1.5 pr-3.5 pl-2 text-small font-medium text-white shadow-[inset_0_1px_0_rgb(255_255_255/0.15)] backdrop-blur-md">
+      <div className="relative container-page grid items-center gap-16 pt-14 pb-20 sm:pt-16 lg:grid-cols-12 lg:gap-8 lg:pt-24 lg:pb-32">
+        <div className="lg:col-span-6">
+          <p className="hero-in inline-flex items-center gap-2 rounded-full border border-brand/15 bg-[linear-gradient(90deg,#edf3fa,#ffffff)] py-1.5 pr-3.5 pl-2 text-small font-medium text-brand-deep shadow-[0_1px_2px_rgb(21_57_111/0.06),inset_0_1px_0_#fff]">
             <span aria-hidden className="relative grid size-5 place-items-center">
-              <span className="absolute size-3 animate-ping rounded-full bg-white/40 motion-reduce:hidden" />
-              <span className="size-1.5 rounded-full bg-white" />
+              <span className="absolute size-3 animate-ping rounded-full bg-brand/30 motion-reduce:hidden" />
+              <span className="size-1.5 rounded-full bg-brand" />
             </span>
             {hero.eyebrow}
           </p>
 
           <h1
             id="hero-heading"
-            className="hero-in mt-7 text-display font-semibold text-pretty text-white [animation-delay:60ms] [text-shadow:0_2px_24px_rgb(0_0_0/0.25)]"
+            className="hero-in mt-7 text-display font-semibold text-pretty text-ink [animation-delay:60ms]"
           >
-            {hero.heading}
+            <Headline text={hero.heading} />
           </h1>
 
-          <p className="hero-in mt-6 max-w-xl text-lead text-pretty text-on-deep [animation-delay:120ms]">
+          <p className="hero-in mt-6 max-w-xl text-lead text-pretty text-ink-muted [animation-delay:120ms]">
             {hero.intro}
           </p>
 
           <div className="hero-in mt-9 flex flex-col gap-3 [animation-delay:180ms] sm:flex-row">
             <CtaLink cta={ctas.consultation} size="lg" arrow />
-            <CtaLink cta={ctas.solutions} variant="outline-inverse" size="lg" />
+            <CtaLink cta={ctas.solutions} variant="secondary" size="lg" />
           </div>
 
-          <div className="hero-in mt-12 border-t border-white/15 pt-6 [animation-delay:240ms]">
-            <p className="eyebrow text-on-deep-muted">Who we work with</p>
-            <ul className="mt-3 flex flex-wrap gap-2 text-small font-medium text-white/90">
+          <div className="hero-in mt-12 border-t border-border pt-6 [animation-delay:240ms]">
+            <p className="eyebrow text-ink-subtle">Who we work with</p>
+            <ul className="mt-3 flex flex-wrap gap-2 text-small font-medium text-ink-muted">
               {hero.audiences.map((audience) => (
                 <li
                   key={audience}
-                  className="rounded-full border border-white/15 bg-white/10 px-3 py-1 backdrop-blur-sm"
+                  className="rounded-full border border-border bg-surface/80 px-3 py-1 shadow-[inset_0_1px_0_#fff]"
                 >
                   {audience}
                 </li>
               ))}
             </ul>
           </div>
+        </div>
+
+        <div className="hero-in [animation-delay:200ms] lg:col-span-6">
+          <p className="sr-only">
+            Illustration: an operations dashboard, a mobile approvals screen and a report workflow
+            with a human review step, showing the kind of software Antopier builds. The data shown
+            is sample data.
+          </p>
+          <div className="relative lg:pl-6">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-x-6 top-12 -bottom-4 -z-10 rounded-[3rem] bg-[radial-gradient(closest-side,rgb(30_98_163/0.22),transparent)] blur-2xl"
+            />
+            <HeroComposition />
+          </div>
+          <p className="mt-14 text-center text-[0.75rem] text-ink-subtle md:mt-16 lg:mt-20 lg:text-right lg:text-white/70">
+            {hero.mockupNote}
+          </p>
         </div>
       </div>
     </section>

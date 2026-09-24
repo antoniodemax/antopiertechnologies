@@ -1,7 +1,6 @@
 import { Link } from "react-router";
 import { contactDetails, legalNav, nav, site } from "@/content/site";
 import { services } from "@/content/services";
-import { hero } from "@/content/home";
 import { Logo } from "./logo";
 
 export function SiteFooter() {
@@ -57,19 +56,7 @@ export function SiteFooter() {
       <div className="border-t border-border">
         <div className="container-page flex flex-col gap-4 py-6 text-small text-ink-subtle sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {year} {site.name}. {site.location}.{" "}
-            <span className="text-ink-subtle">
-              Photograph by{" "}
-              <a
-                href={hero.image.credit.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline underline-offset-2 hover:text-brand"
-              >
-                {hero.image.credit.photographer}
-              </a>{" "}
-              on {hero.image.credit.platform}.
-            </span>
+            © {year} {site.name}. {site.location}.
           </p>
           <nav aria-label="Legal">
             <ul className="flex flex-wrap gap-x-6 gap-y-2">

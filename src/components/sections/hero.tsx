@@ -29,7 +29,7 @@ export function Hero() {
       />
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-grid [mask-image:radial-gradient(ellipse_75%_65%_at_60%_10%,black,transparent_78%)]"
+        className="absolute inset-0 -z-10 bg-grid-strong [mask-image:radial-gradient(ellipse_90%_80%_at_55%_15%,black_30%,transparent_92%)]"
       />
 
       <div className="relative container-page grid items-center gap-16 pt-14 pb-20 sm:pt-16 lg:grid-cols-12 lg:gap-8 lg:pt-24 lg:pb-32">

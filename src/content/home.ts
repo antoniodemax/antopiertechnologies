@@ -5,7 +5,18 @@ export const hero = {
   intro:
     "We design, develop, and scale enterprise software, AI-powered applications, secure web platforms, and digital solutions that help organizations operate smarter, grow faster, and innovate with confidence.",
   audiences: ["Startups", "SMEs", "Corporations", "NGOs", "Government"],
-  mockupNote: "Illustrative interface with sample data",
+  image: {
+    base: "/hero/consultation",
+    lqip: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAbACgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDV6CoftCiYIetTfaonIDCq09r/AKQJ4zlM5xWRoaWQqcnAqFJEmB2HOKztUa5kX9w2EA5rN0m8uI5ysmSjGqFYreIJCbor2FFPvLL7RcySyyd+AKKOZFcjLbXQXmpkuvOiMZfbnoaz8kimg4bilYi5tRaNdzoG+15U1BfxLpqhC2W9au6PNJ5LDceKy/ELGRgXOaHqVF2ZmyXB5OetFROBsFFIttn/2Q==",
+    credit: {
+      photographer: "UK Black Tech",
+      platform: "Unsplash",
+      url: "https://unsplash.com/photos/LRn6do1x6tI",
+    },
+    licence:
+      "Unsplash License (free for commercial use, no attribution required). Downloaded 2026-09-24.",
+    note: "Editorial photograph of professionals in a meeting. Not Antopier staff or clients; never captioned as such.",
+  },
 } as const;
 
 export const companyIntro = {

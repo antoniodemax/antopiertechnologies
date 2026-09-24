@@ -31,15 +31,6 @@ export function Hero() {
         aria-hidden
         className="absolute inset-0 -z-10 bg-grid [mask-image:radial-gradient(ellipse_75%_65%_at_60%_10%,black,transparent_78%)]"
       />
-      {/* Diagonal brand band anchoring the composition. */}
-      <div
-        aria-hidden
-        className="absolute top-[calc(var(--spacing-header)+3rem)] right-[-14%] -z-10 hidden h-[120%] w-[46%] -rotate-6 rounded-[4rem] bg-[linear-gradient(160deg,#15396f_0%,#1e62a3_55%,#2f7cc4_100%)] [mask-image:linear-gradient(180deg,black_58%,transparent_92%)] opacity-[0.96] shadow-[0_40px_100px_-40px_rgb(21_57_111/0.6)] lg:block"
-      />
-      <div
-        aria-hidden
-        className="absolute top-[calc(var(--spacing-header)+3rem)] right-[-14%] -z-10 hidden h-[120%] w-[46%] -rotate-6 rounded-[4rem] bg-grid-deep [mask-image:linear-gradient(180deg,black,transparent_70%)] opacity-70 lg:block"
-      />
 
       <div className="relative container-page grid items-center gap-16 pt-14 pb-20 sm:pt-16 lg:grid-cols-12 lg:gap-8 lg:pt-24 lg:pb-32">
         <div className="lg:col-span-6">
@@ -95,7 +86,7 @@ export function Hero() {
             />
             <HeroComposition />
           </div>
-          <p className="mt-14 text-center text-[0.75rem] text-ink-subtle md:mt-16 lg:mt-20 lg:text-right lg:text-white/70">
+          <p className="mt-14 text-center text-[0.75rem] text-ink-subtle md:mt-16 lg:mt-20 lg:text-right">
             {hero.mockupNote}
           </p>
         </div>

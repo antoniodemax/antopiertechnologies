@@ -50,6 +50,14 @@ export const founder: Founder = {
       source: PORTFOLIO_PROJECTS,
     },
   ],
+  photo: {
+    src: "/brand/antony-peter.png",
+    webp: "/brand/antony-peter.webp",
+    alt: "Antony Peter, founder of Antopier Technologies, in a dark suit and red tie",
+    width: 338,
+    height: 693,
+    source: "AntonyPeter.png supplied by Antony Peter on 2026-09-24",
+  },
   links: [
     {
       network: "linkedin",

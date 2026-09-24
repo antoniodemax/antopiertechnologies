@@ -6,19 +6,27 @@ import { Reveal } from "@/components/ui/reveal";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { SocialIcon } from "@/components/ui/social-icon";
 
-function Monogram() {
+function Portrait() {
+  const { photo } = founder;
   return (
-    <div
-      aria-hidden
-      className="relative grid aspect-square w-full max-w-[15rem] place-items-center overflow-hidden rounded-media shadow-media bg-deep"
-    >
-      <div className="absolute inset-0 bg-grid-deep" />
-      <span className="relative text-[4.5rem] font-semibold tracking-tight text-white">AP</span>
-      <span className="absolute right-5 bottom-5 flex items-end gap-1">
-        {[10, 16, 22, 30].map((h) => (
-          <span key={h} className="w-1.5 rounded-t-sm bg-on-deep-muted/60" style={{ height: h }} />
-        ))}
-      </span>
+    <div className="relative aspect-[4/5] w-full max-w-[18rem] overflow-hidden rounded-media shadow-media bg-deep">
+      <div aria-hidden className="absolute inset-0 bg-grid-deep" />
+      <div
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 h-3/4 bg-[radial-gradient(ellipse_70%_60%_at_50%_100%,rgb(30_98_163/0.6),transparent_70%)]"
+      />
+      <picture>
+        <source srcSet={photo.webp} type="image/webp" />
+        <img
+          src={photo.src}
+          alt={photo.alt}
+          width={photo.width}
+          height={photo.height}
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-x-0 bottom-0 mx-auto h-[96%] w-auto object-contain object-bottom drop-shadow-[0_20px_30px_rgb(0_0_0/0.35)]"
+        />
+      </picture>
     </div>
   );
 }
@@ -30,7 +38,7 @@ export function FounderIntro({ variant = "short" }: { variant?: "short" | "full"
       <SectionHeader id="founder-heading" {...sectionCopy.founder} />
       <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
         <Reveal className="lg:col-span-4">
-          <Monogram />
+          <Portrait />
           <p className="mt-6 text-h3 font-semibold">{founder.name}</p>
           <p className="mt-1 text-small text-ink-muted">{founder.role.text}</p>
           <ul className="mt-5 flex gap-2">

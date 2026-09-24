@@ -128,6 +128,7 @@ export interface Founder extends Tracked {
   education: (SourcedText & { institution: string })[];
   buildRecord: (SourcedText & { project: string; result: string; href?: string })[];
   links: SocialLink[];
+  photo: { src: string; webp: string; alt: string; width: number; height: number; source: string };
 }
 
 export interface ContactDetail extends Tracked {

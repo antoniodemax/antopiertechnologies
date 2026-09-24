@@ -1,0 +1,217 @@
+@import "tailwindcss";
+@import "@fontsource-variable/geist";
+
+/*
+ * Brand values come from the official logo file:
+ *   brand      #1E62A3  (dominant logo blue)
+ *   brand-deep #15396F  (the logo's darker bar-chart blue)
+ * Contrast ratios are recorded in docs/contrast.md.
+ */
+@theme {
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --color-brand: #1e62a3;
+  --color-brand-deep: #15396f;
+  --color-brand-subtle: #edf3fa;
+  --color-brand-tint: #dce8f5;
+
+  --color-surface: #ffffff;
+  --color-surface-muted: #f6f8fb;
+  --color-border: #e4e9f0;
+  --color-border-strong: #8391a4;
+
+  --color-ink: #0c1a2b;
+  --color-ink-muted: #4b5b70;
+  --color-ink-subtle: #5f6e81;
+
+  --color-on-deep: #c9d6e6;
+  --color-on-deep-muted: #9fb3cc;
+
+  --color-danger: #b42318;
+  --color-success: #067647;
+
+  --text-display: clamp(2.375rem, 1.7rem + 2.6vw, 3.625rem);
+  --text-display--line-height: 1.04;
+  --text-display--letter-spacing: -0.035em;
+  --text-h1: clamp(2.25rem, 1.65rem + 2.4vw, 3.5rem);
+  --text-h1--line-height: 1.08;
+  --text-h1--letter-spacing: -0.03em;
+  --text-h2: clamp(1.875rem, 1.45rem + 1.6vw, 2.75rem);
+  --text-h2--line-height: 1.12;
+  --text-h2--letter-spacing: -0.025em;
+  --text-h3: 1.25rem;
+  --text-h3--line-height: 1.35;
+  --text-h3--letter-spacing: -0.01em;
+  --text-lead: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+  --text-lead--line-height: 1.6;
+  --text-body: 1rem;
+  --text-body--line-height: 1.65;
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.55;
+  --text-eyebrow: 0.8125rem;
+  --text-eyebrow--line-height: 1.2;
+  --text-eyebrow--letter-spacing: 0.12em;
+
+  --radius-control: 0.625rem;
+  --radius-card: 1rem;
+  --radius-media: 1.25rem;
+
+  --shadow-card: 0 1px 2px rgb(12 26 43 / 0.04), 0 1px 1px rgb(12 26 43 / 0.02);
+  --shadow-raise: 0 1px 2px rgb(12 26 43 / 0.04), 0 16px 32px -16px rgb(21 57 111 / 0.2);
+  --shadow-nav: 0 1px 0 rgb(12 26 43 / 0.06), 0 8px 24px -18px rgb(12 26 43 / 0.25);
+  --shadow-media: 0 1px 2px rgb(12 26 43 / 0.06), 0 24px 60px -24px rgb(21 57 111 / 0.28);
+
+  --spacing-section-sm: 4.5rem;
+  --spacing-section: 6rem;
+  --spacing-section-lg: 8rem;
+  --spacing-header: 4.5rem;
+
+  --container-content: 76rem;
+  --container-prose: 42rem;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-padding-top: calc(var(--spacing-header) + 1rem);
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    @apply bg-surface font-sans text-body text-ink antialiased;
+  }
+
+  ::selection {
+    @apply bg-brand-tint text-ink;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  [id] {
+    scroll-margin-top: calc(var(--spacing-header) + 1.5rem);
+  }
+}
+
+@utility container-page {
+  width: 100%;
+  max-width: var(--container-content);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (width >= 40rem) {
+    padding-inline: 2rem;
+  }
+  @media (width >= 64rem) {
+    padding-inline: 2.5rem;
+  }
+}
+
+@utility section-y {
+  padding-block: var(--spacing-section-sm);
+  @media (width >= 64rem) {
+    padding-block: var(--spacing-section);
+  }
+}
+
+@utility eyebrow {
+  font-size: var(--text-eyebrow);
+  line-height: var(--text-eyebrow--line-height);
+  letter-spacing: var(--text-eyebrow--letter-spacing);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Faint engineering grid used behind the hero and dark sections. */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(30 98 163 / 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(30 98 163 / 0.07) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@utility bg-grid-deep {
+  background-image:
+    linear-gradient(to right, rgb(201 214 230 / 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(201 214 230 / 0.07) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Scroll reveal. Content is visible without JS and with reduced motion. */
+@layer components {
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 0.7s var(--ease-out-soft),
+      transform 0.7s var(--ease-out-soft);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .js [data-reveal][data-revealed="true"] {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .js [data-reveal] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes sheet-in {
+  from {
+    transform: translateX(100%);
+  }
+}
+@keyframes sheet-out {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes bar-rise {
+  from {
+    transform: scaleY(0.15);
+    opacity: 0.4;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-bar {
+    transform-origin: bottom;
+    animation: bar-rise 0.9s var(--ease-out-soft) both;
+  }
+}
+
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-in {
+    animation: hero-in 0.8s var(--ease-out-soft) both;
+  }
+}

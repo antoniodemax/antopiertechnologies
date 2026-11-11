@@ -1,72 +1,78 @@
-# Antopier Technologies & Antopier Insights — Product Strategy
+# Antopier Technologies — Company & Product Strategy
 
-**Status:** Working hypothesis for CEO review  
+**Status:** Working strategy for CEO review  
 **Last reviewed:** 2026-11-11
 
-## 1. Company and product
-Antopier Technologies is the parent technology company and may deliver software development, analytics, AI integration and technology consulting. Antopier Insights is the proposed first repeatable product: a business performance intelligence solution.
+## 1. Company direction
+Antopier Technologies is a technology consultancy and digital solutions agency being built with the ambition to become a broader technology company over time.
 
-The existing company website remains a separate marketing/conversion application. Its completion does not mean the Insights product is validated or built.
+The company should not present itself as SaaS-only at this stage. The initial business model is client services: solve real problems, deliver quality work, earn revenue, build trust and learn what customers repeatedly need.
 
-## 2. Problem hypothesis
-Some organisations hold sales, expense and operational information in Excel, CSV exports or spreadsheets, but struggle to consolidate records, produce reliable reports, identify changes and explain what the numbers mean. This is a hypothesis to test, not an established market fact.
+## 2. Service lines
+Initial service catalogue to validate and refine:
+1. **Web design and development** — fast, accessible, search-friendly business websites.
+2. **Custom software and web applications** — portals, workflow tools and business-specific systems.
+3. **Business intelligence and analytics** — data cleaning, interactive dashboards, reporting and decision support.
+4. **AI integration and automation** — practical AI features and workflow automation with clear human oversight.
+5. **Technology consulting and architecture** — requirements, technical planning, system selection and implementation guidance.
+6. **Cloud, deployment and application security** — deployment, maintenance and security-conscious engineering within demonstrated capability.
 
-Discovery must establish the severity and frequency of the problem, existing workflow and cost, available data, decisions affected, willingness to pay and security/privacy requirements.
+Do not overpromise enterprise security, compliance, AI autonomy, 24/7 support or technologies the company cannot currently deliver. Scope each engagement against actual skills, time and budget.
 
-## 3. Initial customer segment hypothesis
-Test small retailers or distributors already recording sales and expenses in spreadsheets. NGOs and procurement/supply-chain organisations are possible later segments, not simultaneous MVP targets. The CEO selects one initial segment after interviews.
+## 3. Commercial model: agency first
+Antopier can earn through:
+- Fixed-scope website and application projects.
+- Custom software development milestones.
+- Dashboard and data-reporting engagements.
+- AI workflow discovery and carefully scoped integrations.
+- Monthly maintenance, analytics reporting or support retainers where the customer sees ongoing value.
+- Paid discovery/technical consulting where appropriate.
 
-## 4. Positioning hypothesis
-Antopier Insights helps business owners turn spreadsheet records into clear performance information and better-informed decisions.
+Pricing is not yet validated. Build estimates from scope, delivery time, complexity, support obligations and customer value. Avoid publishing unsupported guarantees or artificially low prices.
 
-Possible positioning line: **Turn business data into better decisions.**
+## 4. Product ambition
+**Antopier Insights** is a product opportunity, not the company's entire identity.
 
-Do not claim guaranteed profit growth, predictive accuracy or proven outcomes without evidence.
+The hypothesis is that clients may repeatedly need to turn spreadsheet-based business information into reliable performance reports and understandable insights. Antopier can first provide this as a consulting/dashboard service. Record recurring needs, data formats, metric definitions, workflow pain, willingness to pay and security expectations.
 
-## 5. Commercial approach
-Start service-assisted:
-1. Customer discovery and data-readiness assessment.
-2. Scoped data-cleaning and dashboard pilot.
-3. Monthly reporting/insight support if customers value it.
-4. Productise repeated workflows only after several customers reveal common needs.
+Only after evidence from multiple real customers should the company decide which repeated workflow merits a self-service or service-assisted SaaS product. Do not build a large platform before validating the problem and paid demand.
 
-This reduces the risk of building a large SaaS platform before validating demand. Any pricing is a hypothesis until tested against willingness to pay and actual delivery effort.
+## 5. Initial customer focus
+Potential client groups include SMEs, retailers/distributors, startups and NGOs. Do not target every group with the same message. Start with the group where the founder can access decision-makers and deliver a specific outcome credibly. Choose the first segment based on interviews and actual opportunities.
 
-## 6. MVP hypothesis
-A customer provides an Excel/CSV dataset. The product guides upload, validation, mapping and review, then creates a dashboard with traceable calculations and plain-language commentary.
+For BI discovery, retailers/distributors are one hypothesis because sales and expense records often exist in spreadsheets; validate rather than assume.
 
-Candidate capabilities: secure organisation workspace, private uploads, data preview/mapping, data quality feedback, revenue/expense/profitability metrics where source data supports them, period trends, exportable reports and AI explanations grounded in computed metrics.
+## 6. Customer acquisition and delivery loop
+1. Identify a reachable business segment.
+2. Hold discovery conversations and understand its workflow.
+3. Offer a narrowly scoped service with a clear deliverable.
+4. Agree scope, data access, timeline, payment and support in writing.
+5. Deliver, test and obtain customer acceptance.
+6. Ask for feedback and permission before using any testimonial or case study.
+7. Document repeatable patterns and delivery effort.
+8. Productise only the problems that recur and have credible willingness to pay.
 
-Out of scope initially: bank/ERP integrations, automated bookkeeping/tax, autonomous actions, mobile native apps, forecasting presented as certainty, multiple industries at launch and unrestricted natural-language SQL.
+## 7. Agency validation measures
+Track qualified leads, discovery calls, proposals, proposal-to-paid conversion, project delivery time, actual margin, scope changes, client satisfaction, referrals, repeat work and support burden. Establish baselines before setting targets.
 
-## 7. Customer discovery
-Plan 15–20 structured conversations across candidate prospects. Ask:
-- How do you track sales, expenses and other key information?
-- How often do you prepare reports and how long does it take?
-- What causes errors or delays?
-- Which decisions are difficult because information is missing?
-- Which reports would be useful?
-- What tools or people help today?
-- What would make a reporting product trustworthy?
-- Who approves spending?
-- Would a one-off report, monthly service or subscription be valuable?
-- What would prevent you from sharing business data?
+## 8. Antopier Insights discovery
+Potential first product: business performance reporting from customer-provided spreadsheets. Candidate capabilities include data validation, mapping, deterministic metrics, dashboard views, exports and AI explanations grounded in calculated figures.
 
-Observe workflows without collecting unnecessary personal or confidential data. Use redacted or synthetic examples. Never invent interview results.
+Use synthetic data for demos. Never place confidential client data in public Tableau workbooks or public repositories. Before handling real customer data, define lawful purpose, access, retention, security and appropriate contractual/privacy controls.
 
-## 8. Founder constraints
-Initial cash budget is below KSh 10,000. Avoid paid infrastructure and model API spend until necessary and approved. Use synthetic data and manual AI assistance with non-sensitive information while validating value. Build while learning, explaining concepts as each task arises.
+## 9. Founder constraints and operating style
+Initial available capital is below KSh 10,000. Keep spending lean; no paid infrastructure or model API usage without a business case and approval. Learn while building, but do not confuse learning exercises with customer-ready deliverables.
 
-## 9. Validation gates
-- Problem gate: repeated pain documented in real interviews.
-- Segment gate: one initial customer segment selected.
-- Data gate: representative data structures and limitations understood.
-- Value gate: users can explain which decision the output improves.
-- Payment gate: paid pilot or credible purchase commitment before major product investment.
-- Security gate: lawful data handling, retention, access, provider terms and privacy review before real customer data is processed.
+## 10. Strategic sequence
+**Stage A — Establish the agency:** clear offers, credible website, lead generation, discovery, proposals and first paid projects.
 
-## 10. Risks
-Building before validation; serving every industry at once; inconsistent spreadsheets; AI hallucinations; privacy/security gaps; underpricing data cleaning/support; spending scarce capital on infrastructure too early; confusing website completion with product-market validation.
+**Stage B — Standardise delivery:** reusable project templates, quality checks, analytics/dashboard packages, support processes and case studies only with permission.
+
+**Stage C — Validate a repeatable product:** interview customers, identify repeated pain, test a paid pilot and define a narrow PRD.
+
+**Stage D — Build Antopier Insights:** architecture, security and implementation only after CEO approval and customer validation.
+
+**Stage E — Expand:** additional products or markets when revenue, demand, capability and operational capacity justify it.
 
 ## Strategic principle
-Sell and learn before automating everything. Build the smallest trustworthy workflow that solves a repeated, paid customer problem.
+**Services fund learning; repeated customer problems guide products.** Build a trusted consultancy first and let evidence determine what becomes software.

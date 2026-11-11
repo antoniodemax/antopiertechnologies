@@ -52,8 +52,25 @@ Do not describe Antopier as an established enterprise vendor or claim client out
 - Security reviewer independently checks auth, tenant isolation, RLS, uploads, secrets, AI data flow and deployments.
 - No agent can approve its own work or override the CEO.
 
-## Skills
-At project start, inspect locally available Claude Code skills and exact descriptions. Use installed Matt Pocock TypeScript skills for relevant type modelling, API design and type safety. Use installed Fluent AI skills for relevant AI workflows, prompt design, evaluation, retrieval and model integration. Never guess skill names or force irrelevant skills.
+## Skills Utilisation Policy
+The inventory (exact names, commands, uses, owning agents, combinations) is docs/insights/SKILLS_INVENTORY.md. Check it against the installed skills (`/skills`) at project start, because plugin versions change.
+
+**Collections and what they are for**
+- Superpowers: structured workflow (brainstorming, plans, test-first, debugging, verification, review, branch finishing).
+- Matt Pocock: specs and tickets, TDD, bug diagnosis, code review, domain modelling, codebase design, research, writing for agents. The collection is general engineering, not TypeScript-specific.
+- Fluent AI: agent building, big multi-step tasks, visual assets and design critique, AI-writing review.
+- frontend-design (and dataviz for charts): UI and visual design.
+- Specialist agents in .claude/agents/ each list their own skills.
+
+**Rules**
+1. Select before proposing. The orchestrator matches each task against the inventory and names the specialist agents and skills, with a one-line reason each, in every task briefing.
+2. Invoke, then follow. Call the skill with the Skill tool and follow its instructions. Process skills (brainstorming, systematic-debugging) come before implementation skills.
+3. Combine skills whose workflows complement each other, as the inventory lists. Use a skill only where it fits the task.
+4. Delegate with skills. Specialist prompts name the skills to check and use; specialists verify the names against the installed list first.
+5. Recommend user-only skills. Skills marked `U` in the inventory cannot be invoked by agents. Recommend the exact command and reason to the CEO, and report it as "recommended", never as used.
+6. Report honestly. "Skills used" lists only skills actually invoked and followed this task, with the reason; write "none" when none applied. A skill read but not followed is "consulted".
+7. Skills do not override approval gates. A skill step that implements, commits, pushes, publishes, files issues, provisions or deploys waits for explicit CEO approval of that exact action.
+8. Never guess skill names. An unlisted name is checked against the installed list or left out.
 
 ## Engineering and security principles
 Small reversible changes; no secrets in source control/browser bundles; synthetic data for development; database-enforced tenant isolation; private storage; deterministic calculations; AI must not invent metrics or causes; backups and tested restores before production onboarding. Never claim absolute security or compliance without evidence and appropriate review.

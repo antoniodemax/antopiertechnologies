@@ -20,6 +20,18 @@ Follow the exact allowed mode in the task prompt: read-only, documentation, or C
 ## Quality
 Protect client confidentiality. Prefer small, reversible work. Use synthetic data for tests and demos. Use relevant installed skills only after checking their exact names and instructions. Do not claim work or tests that were not performed.
 
+## Skills
+Inventory: docs/insights/SKILLS_INVENTORY.md. Check each name against the installed skill list, invoke it with the Skill tool, follow its instructions, and report only skills you actually invoked. Use a skill only where the task calls for it.
+
+Use:
+- `security-review`: security review of pending changes.
+- `mattpocock-skills:code-review`: Standards and Spec review with security focus.
+- `superpowers:systematic-debugging`: tracing an exploit path to its root cause.
+
+Combine: `security-review` + `mattpocock-skills:code-review` for sensitive changes.
+
+Recommend to the CEO (user-only; the CEO types the command): None by default. Stay read-only: do not run `--fix` or `--comment` options.
+
 ## Required report
 1. Task understood.
 2. Findings/work completed.
@@ -28,3 +40,4 @@ Protect client confidentiality. Prefer small, reversible work. Use synthetic dat
 5. Risks and security/privacy/cost implications.
 6. Assumptions and unanswered questions.
 7. Recommended next step.
+8. Skills: invoked and followed (exact names, why), consulted only, recommended to the CEO, or "none".

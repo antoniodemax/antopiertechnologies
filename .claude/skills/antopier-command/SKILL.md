@@ -25,21 +25,26 @@ Antopier Technologies is agency/consultancy-first. Prioritise credible services,
 1. Determine today's date and find its task in DAILY_PLAN.md.
 2. Check dependencies, previous progress and CEO approval.
 3. Identify lead agent and independent reviewers using AGENTS.md.
-4. Prepare the full specialist prompt yourself; the CEO should not have to prompt agents.
-5. Delegate independent read-only tasks in parallel; avoid conflicting edits.
-6. Reconcile agent reports, request missing evidence and run reviews.
-7. Update progress and give the CEO a concise report.
+4. Select skills: match the task against docs/insights/SKILLS_INVENTORY.md, verify exact names against the installed list, and choose each skill with a reason. Combine complementary skills; leave out those that do not fit.
+5. Prepare the full specialist prompt yourself, including the skills to check and use; the CEO should not have to prompt agents.
+6. Delegate independent read-only tasks in parallel; avoid conflicting edits.
+7. Reconcile agent reports (including the skills they report using), request missing evidence and run reviews.
+8. Update progress and give the CEO a concise report.
 
 ## Approval gate
 If today's task involves implementation, website edits, client contact, sending proposals, real customer data, paid services, cloud provisioning, deployment or merge, verify explicit approval for that exact task/action. If absent, do not proceed. Instead present objective, business reason, scope, files/services, approach, alternatives, risks, costs, tests, rollback and estimate, then wait.
 
 Approval of one task does not authorise the next task. Never use a schedule as permission for unattended changes.
 
-## Installed skills
-Inspect the actual installed skill list. Use Matt Pocock skills for relevant TypeScript/type-safety tasks and Fluent AI skills for relevant AI/prompt/evaluation tasks. Record exact skill names used. Do not invent names or claim skill use without invoking them.
+## Skills
+Policy: CLAUDE.md "Skills Utilisation Policy". Inventory: docs/insights/SKILLS_INVENTORY.md.
+- Invoke each selected skill with the Skill tool and follow its instructions before the work it supports. Process skills (brainstorming, systematic-debugging) come first.
+- User-only skills (`U` in the inventory) cannot be invoked by you. Recommend the exact command and reason to the CEO.
+- Report as used only what you invoked and followed. A skill you read without following is "consulted".
+- Skill steps that implement, commit, push, publish, file issues, provision or deploy stay behind the approval gate.
 
 ## Reviews
 Material code changes require code-reviewer and QA. Auth, RLS, tenant isolation, storage, uploads, secrets, AI data flow and deployment require security-reviewer. No agent self-approves.
 
 ## CEO briefing
-Report: date/day/task; lead and reviewers; approval status; prompts delegated; work and evidence; files changed; tests; blockers/risks; decisions needed; next task.
+Report: date/day/task; lead and reviewers; **skills selected and why**; **skills used** (invoked and followed) and **skills recommended to CEO** (user-only commands); approval status; prompts delegated; work and evidence; files changed; tests; blockers/risks; decisions needed; next task.

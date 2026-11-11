@@ -46,6 +46,7 @@ For each task, the orchestrator writes the prompts. Every prompt must contain:
 7. Acceptance criteria and evidence/tests.
 8. Security, privacy, budget and client confidentiality constraints.
 9. Required report format.
+10. Skills to check and use, taken from the agent's Skills section and SKILLS_INVENTORY.md, with the reason each fits. Skills that do not fit are omitted.
 
 ## Reviews
 - Lead agent completes bounded work.
@@ -55,8 +56,12 @@ For each task, the orchestrator writes the prompts. Every prompt must contain:
 - Orchestrator reconciles and briefs CEO.
 - CEO accepts/rejects; no agent self-approves.
 
-## Installed skills
-At project start, inspect the actual local skill inventory. Use installed Matt Pocock skills when TypeScript/type-safety work is relevant. Use installed Fluent AI skills when AI/prompt/evaluation work is relevant. Record exact skill names used and why. Do not invent skill names or use skills merely to claim usage.
+## Skill selection
+Skill selection is a standard orchestration step. Policy: CLAUDE.md "Skills Utilisation Policy". Inventory: SKILLS_INVENTORY.md.
+- Before proposing work, the orchestrator picks the lead agent, reviewers and skills together, and verifies skill names against the installed list.
+- Every task briefing to the CEO contains: **Agents** (lead, reviewers, one-line reason each), **Skills selected** (exact names, reason each), **Skills used** (only those invoked and followed), **Skills recommended to CEO** (user-only commands, with reason).
+- Agents invoke the skills in their own Skills section where relevant and report exact names used. Agents cannot run user-only skills; they recommend them.
+- No skill is used merely to claim usage.
 
 ## Safety boundaries
 No agent may contact clients, send proposals, spend money, access real customer data, provision cloud services, deploy or merge without explicit CEO approval.

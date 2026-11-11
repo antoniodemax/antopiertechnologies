@@ -99,6 +99,9 @@ The main Claude Code session (Elias Voss) reads today's row, prepares all specia
 | 87 | 2027-02-06 | Next-quarter daily plan draft | technical-writer | Draft next 90 days after CEO decision. |
 | 88 | 2027-02-07 | Final 90-day retrospective | technical-writer | Record outcomes, evidence, lessons and unresolved risks. |
  
+| 89 | 2027-02-08 | CEO decision log and risk register update | delivery-orchestrator | Consolidate approved decisions, open risks, deferred work and required approvals. |
+| 90 | 2027-02-09 | 90-day closeout and next-quarter approval | product-strategist | Present evidence-based agency and product priorities; wait for CEO approval. |
+
 ## Daily completion record
 - Date / day:
 - Task and lead agent:
